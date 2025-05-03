@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  
+  body {
+    @apply bg-background text-slate-100 min-h-screen font-sans antialiased;
+    background: linear-gradient(135deg, #0a0118 0%, #1a0032 100%);
+    background-attachment: fixed;
+  }
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-900;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary/50 rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary/70;
+  }
+}
+
+@layer components {
+  .container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .btn {
+    @apply inline-flex items-center justify-center rounded-lg px-5 py-2.5 text-sm font-medium tracking-wide transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none;
+  }
+  
+  .btn-primary {
+    @apply btn bg-primary hover:bg-primary/90 text-white shadow-glow-sm hover:shadow-glow-md transition-all duration-300;
+  }
+  
+  .btn-secondary {
+    @apply btn bg-secondary hover:bg-secondary/90 text-white shadow-glow-sm-secondary hover:shadow-glow-md-secondary transition-all duration-300;
+  }
+  
+  .btn-outline {
+    @apply btn border-2 border-slate-600 hover:border-primary/70 bg-transparent hover:bg-primary/10 text-slate-200 transition-all duration-300;
+  }
+  
+  .card {
+    @apply rounded-xl backdrop-blur-md bg-slate-900/40 border border-slate-800/50 shadow-lg overflow-hidden transition-all duration-300;
+  }
+  
+  .card-hover {
+    @apply hover:shadow-glow-lg hover:-translate-y-1 hover:bg-slate-900/60;
+  }
+  
+  .glass-panel {
+    @apply backdrop-blur-lg bg-slate-900/40 border border-slate-700/50 rounded-xl shadow-xl;
+  }
+  
+  .shadow-glow-sm {
+    @apply shadow-[0_0_15px_rgba(221,94,255,0.3)];
+  }
+  
+  .shadow-glow-md {
+    @apply shadow-[0_0_25px_rgba(221,94,255,0.4)];
+  }
+  
+  .shadow-glow-lg {
+    @apply shadow-[0_0_35px_rgba(221,94,255,0.5)];
+  }
+  
+  .shadow-glow-sm-secondary {
+    @apply shadow-[0_0_15px_rgba(255,94,177,0.3)];
+  }
+  
+  .shadow-glow-md-secondary {
+    @apply shadow-[0_0_25px_rgba(255,94,177,0.4)];
+  }
+  
+  .text-gradient {
+    @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;
+  }
+  
+  .animate-glow {
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+  
+  .hero-bg {
+    background-image: url('https://images.pexels.com/photos/1694000/pexels-photo-1694000.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: overlay;
+    @apply bg-slate-900/60 backdrop-blur-sm;
+  }
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 10px rgba(221, 94, 255, 0.3);
+  }
+  to {
+    box-shadow: 0 0 20px rgba(221, 94, 255, 0.5), 0 0 30px rgba(255, 94, 177, 0.3);
+  }
+}
